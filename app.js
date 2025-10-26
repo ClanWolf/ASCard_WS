@@ -58,6 +58,15 @@ app.use("/", (req, res) => {
   });
 });
 
+// CORS erlauben
+const cors = require('cors');
+app.use(cors({
+  origin: 'https://sb.ascard.net',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
+}));
+
 app.listen(port, () => {
   logger.info(`Web service listening at http://localhost:${port}`);
 });
