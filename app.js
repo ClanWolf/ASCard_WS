@@ -5,7 +5,6 @@
 const express = require("express");
 
 const { logger } = require("./logger.js");
-const { specs } = require("./swagger.js");
 
 const bodyParser = require("body-parser");
 const path = require("path");
@@ -34,25 +33,22 @@ app.engine(".handlebars", handlebars.engine);
 app.set("view engine", ".handlebars");
 app.set("views", "views");
 
-// CORS erlauben
-const cors = require('cors');
-app.use(cors({
-  origin: 'https://sb.ascard.net',
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true
-}));
+// Allow CORS
+const cors = require("cors");
+app.use(
+  cors({
+    origin: "https://sb.ascard.net",
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
+  })
+);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "public")));
 
 // Routes
-app.use(
-  "/api-docs",
-  swaggerUi.serve,
-  swaggerUi.setup(specs, { explorer: true })
-);
 app.use("/login", require("./routes/login"));
 app.use("/player", require("./routes/player.js"));
 app.use("/games", require("./routes/games"));
