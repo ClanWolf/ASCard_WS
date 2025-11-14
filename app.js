@@ -58,8 +58,6 @@ app.use("/", (req, res) => {
   res.render("home.handlebars", {
     pageTitle: "ASCard Webservice",
     activeHome: true,
-    navCSS: true,
-    // layout: false
   });
 });
 
