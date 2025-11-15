@@ -63,7 +63,7 @@ app.use("/games", require("./routes/games"));
 app.use("/", (req, res) => {
   res.render("home.handlebars", {
     pageTitle: "ASCard Webservice",
-    date: new Date(),
+    date: "new Date()",
     activeHome: true,
   });
 });
