@@ -28,14 +28,14 @@ const winston = require("winston");
 require("winston-daily-rotate-file");
 
 const fileRotateCombinedTransport = new winston.transports.DailyRotateFile({
-  filename: "./log/combined-%DATE%.log",
+  filename: "./public/log/combined-%DATE%.log",
   datePattern: "YYYY-MM-DD",
   level: "info",
   maxFiles: "14d",
 });
 
 const fileRotateErrorTransport = new winston.transports.DailyRotateFile({
-  filename: "./log/error-%DATE%.log",
+  filename: "./public/log/error-%DATE%.log",
   datePattern: "YYYY-MM-DD",
   level: "error",
   maxFiles: "7d",
