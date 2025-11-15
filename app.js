@@ -5,6 +5,7 @@
 const express = require("express");
 
 const { logger } = require("./logger.js");
+const { specs } = require("./swagger.js");
 
 const bodyParser = require("body-parser");
 const path = require("path");
@@ -49,6 +50,11 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "public")));
 
 // Routes
+app.use(
+  "/api-docs",
+  swaggerUi.serve,
+  swaggerUi.setup(specs, { explorer: true })
+);
 app.use("/login", require("./routes/login"));
 app.use("/player", require("./routes/player.js"));
 app.use("/games", require("./routes/games"));
@@ -57,6 +63,7 @@ app.use("/games", require("./routes/games"));
 app.use("/", (req, res) => {
   res.render("home.handlebars", {
     pageTitle: "ASCard Webservice",
+    date: new Date(),
     activeHome: true,
   });
 });

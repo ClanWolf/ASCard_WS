@@ -1,3 +1,183 @@
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     Game:
+ *       type: object
+ *       required:
+ *         - gameid
+ *         - ownerPlayerId
+ *         - title
+ *         - background
+ *         - era
+ *         - yearInGame
+ *         - accessCode
+ *         - locked
+ *         - scheduled
+ *         - started
+ *         - finished
+ *         - players
+ *       properties:
+ *         gameid:
+ *           type: number
+ *           description: The auto-generated id of the game
+ *         ownerPlayerId:
+ *           type: number
+ *           description: The player this game is assigned to
+ *         title:
+ *           type: string
+ *           description: The title of the game
+ *         background:
+ *           type: string
+ *           description: Background to this game
+ *         era:
+ *           type: string
+ *           description: One of the eras STAR LEAGUE, SUCCESSION WARS, CLAN INVASION, CIVIL WAR, JIHAD, DARK AGE, ILCLAN
+ *         yearInGame:
+ *           type: string
+ *           description: The year in the BTU timeline
+ *         accessCode:
+ *           type: string
+ *           description: Access code
+ *         locked:
+ *           type: boolean
+ *           description: Whether the game is locked (no one can join anymore)
+ *         scheduled:
+ *           type: string
+ *           format: date
+ *           description: When the game will start
+ *         started:
+ *           type: string
+ *           format: date
+ *           description: Whether the game has been finished
+ *         finished:
+ *           type: string
+ *           format: date
+ *           description: Whether the game has been finished
+ *         createdAt:
+ *           type: string
+ *           format: date
+ *           description: The date the game was added
+ *         players:
+ *           type: array
+ *           items:
+ *             $ref: "#/components/schemas/Player"
+ *       example:
+ *         gameid: 543
+ *         ownerPlayerId: 2
+ *         title: Northwind Planetary Assault
+ *         background: The planetary assault on Northwind by Clan Snow Raven
+ *         era: CLAN INVASION
+ *         yearInGame: 3052
+ *         accessCode: xxx
+ *         locked: true
+ *         scheduled: 2024-12-06T08:00:00.000Z
+ *         started: 2024-12-06T08:00:00.000Z
+ *         finished: null
+ *         createdAt: 2024-11-29T04:05:06.157Z
+ *         players: [{ playerid: 12, name: "Sleesh" }, { playerid: 15, name: "AnotherPlayer" }]
+ */
+
+/**
+ * @swagger
+ * tags:
+ *   name: Game
+ *   description: The ASCard API
+ * /games:
+ *   get:
+ *     summary: Lists all games
+ *     tags: [Games]
+ *     responses:
+ *       200:
+ *         description: The list of all games
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Game'
+ *   post:
+ *     summary: Create a new game
+ *     tags: [Games]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/Game'
+ *     responses:
+ *       200:
+ *         description: The created game.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Game'
+ *       500:
+ *         description: Server error
+ * /games/{id}:
+ *   get:
+ *     summary: Get the game by id
+ *     tags: [Games]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: The game id
+ *     responses:
+ *       200:
+ *         description: The game response by id
+ *         contens:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Game'
+ *       404:
+ *         description: The game was not found
+ *   put:
+ *    summary: Update the game by the id
+ *    tags: [Games]
+ *    parameters:
+ *      - in: path
+ *        name: id
+ *        schema:
+ *          type: string
+ *        required: true
+ *        description: The game id
+ *    requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ *          schema:
+ *            $ref: '#/components/schemas/Game'
+ *    responses:
+ *      200:
+ *        description: The game was updated
+ *        content:
+ *          application/json:
+ *            schema:
+ *              $ref: '#/components/schemas/Game'
+ *      404:
+ *        description: The game was not found
+ *      500:
+ *        description: Server error
+ *   delete:
+ *     summary: Remove the game by id
+ *     tags: [Games]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: The game id
+ *     responses:
+ *       200:
+ *         description: The game was deleted
+ *       404:
+ *         description: The game was not found
+ */
+
 const { logger } = require("../logger.js");
 const db = require("../db.js");
 
@@ -96,7 +276,7 @@ router.get("/:id/light", async (req, res) => {
   // with ` its possible to create multi line comments/string
   try {
     const rows = await db.pool.query(
-    `  SELECT *, 
+      `  SELECT *, 
         asc_player.name as playerName
                      FROM asc_game
                               LEFT JOIN asc_player

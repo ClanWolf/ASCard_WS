@@ -44,10 +44,10 @@ const fileRotateErrorTransport = new winston.transports.DailyRotateFile({
 const { createLogger, format, transports } = require("winston");
 
 const logger = createLogger({
-  level: "info",
+  level: "debug",
   format: format.combine(
     format.timestamp({
-      format: "YYYY-MM-DD HH:mm:ss",
+      format: "YYYYMMDD HH:mm:ss",
     }),
     format.align(),
     format.splat(),
@@ -57,7 +57,7 @@ const logger = createLogger({
   ),
   defaultMeta: { service: "ascard-service" },
   transports: [
-    new winston.transports.Console(),
+    new winston.transports.Console({ level: "debug" }),
     fileRotateCombinedTransport,
     fileRotateErrorTransport,
   ],

@@ -11,14 +11,16 @@
   "license": "Apache-2.0",
   "description": "",
   "dependencies": {
-    "cors": "^2.8.5",
     "bcryptjs": "^3.0.2",
     "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.21.2",
     "express-handlebars": "^8.0.1",
     "jsonwebtoken": "^9.0.2",
     "mariadb": "^3.4.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
     "winston": "^3.17.0",
     "winston-daily-rotate-file": "^5.0.0",
     "ws.ascard.net": "file:"
