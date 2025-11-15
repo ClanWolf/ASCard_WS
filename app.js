@@ -62,12 +62,6 @@ app.use("/player", require("./routes/player.js"));
 app.use("/games", require("./routes/games"));
 //app.use("/units", require("./routes/units"));
 
-app.get("/log/", function (req, res) {
-  fs.readFile("./path/to/file.ext", "utf8", function (err, html) {
-    res.send(html);
-  });
-});
-
 app.use("/", (req, res) => {
   res.render("home.handlebars", {
     pageTitle: "ASCard Webservice",
