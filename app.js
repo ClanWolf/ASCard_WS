@@ -14,6 +14,8 @@ const port = 3000;
 
 const expHbs = require("express-handlebars");
 
+let date = new Date().toISOString().split("T")[0];
+
 logger.info("Starting up ASCard Webservice...");
 
 var handlebars = expHbs.create({
@@ -63,7 +65,7 @@ app.use("/games", require("./routes/games"));
 app.use("/", (req, res) => {
   res.render("home.handlebars", {
     pageTitle: "ASCard Webservice",
-    date: "new Date()",
+    date: date,
     activeHome: true,
   });
 });
