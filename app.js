@@ -35,7 +35,7 @@ app.set("views", "views");
 const cors = require("cors");
 app.use(
   cors({
-    origin: "https://sb.ascard.net",
+    origin: "https://sb.cw-g.net",
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
