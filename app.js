@@ -11,7 +11,7 @@ const expHbs = require("express-handlebars");
 
 let date = new Date().toISOString().split("T")[0];
 
-logger.info("Starting up ASCard Webservice...");
+logger.info("Starting up CW-G Webservice...");
 
 var handlebars = expHbs.create({
   defaultLayout: "main-layout",
@@ -54,7 +54,7 @@ app.use("/games", require("./routes/games"));
 
 app.use("/", (req, res) => {
   res.render("home.handlebars", {
-    pageTitle: "ASCard Webservice",
+    pageTitle: "CW-G Webservice",
     date: date,
     activeHome: true,
   });
