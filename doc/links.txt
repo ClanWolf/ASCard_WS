@@ -6,3 +6,5 @@ https://blog.logrocket.com/documenting-express-js-api-swagger/
 
 If winston is not logging to console:
 https://stackoverflow.com/questions/55456007/nodejs-winston-module-example-not-logging-to-console
+
+https://www.npmjs.com/package/rotating-file-stream

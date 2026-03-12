@@ -2,7 +2,8 @@
 const { logger } = require("./logger.js");
 var mariadb = require("mariadb");
 
-require("dotenv").config();
+require('@dotenvx/dotenvx').config();
+
 const {
   DB_HOST = "host",
   DB_USER = "user",

@@ -1,37 +1,9 @@
 <h1>ASCard WS</h1>
-<h2>API docs</h2>
-<ul>
-  <li>
-    <a href="./api-docs" target="_BLANK">API documentation</a>
-  </li>
-</ul>
 <h2>Logs</h2>
 <ul>
-  <li>
-    <a
-      href="https://ws.ascard.net/public/log/combined-{{date}}.txt"
-      target="log"
-    >Winston combined log
-    </a>
-  </li>
-  <li>
-    <a
-      href="https://ws.ascard.net/public/log/error-{{date}}.txt"
-      target="log"
-    >Winston error log
-    </a>
-  </li>
-  <li>
-    <a href="https://ws.ascard.net/public/log/consolelog.txt" target="log">
-      Passenger log
-    </a>
-  </li>
+	<li><a href="https://ws.ascard.net/public/log/combined-%DATE%.txt" target="log">Webservice combined log</a></li>
+	<li><a href="https://ws.ascard.net/public/log/error-%DATE%.txt" target="log">Webservice error log</a></li>
+	<li><a href="https://ws.ascard.net/public/log/consolelog.txt" target="log">Server passenger log</a></li>
 </ul>
-<iframe
-  id="log"
-  name="log"
-  title="Log window"
-  style="width: 100%; height: 500px; border: 1px solid #000;"
-  src="https://ws.ascard.net/public/log/consolelog.txt"
->
-</iframe>
+
+<iframe id="log" name="log" title="Log window" style="width: 100%; height: 500px; border: 1px solid #000;" src="https://ws.ascard.net/public/log/consolelog.txt"></iframe>
