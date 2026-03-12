@@ -1,5 +1,5 @@
 {
-  "name": "ws.ascard.net",
+  "name": "ws.cw-g.net",
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
@@ -10,14 +10,14 @@
   "license": "Apache-2.0",
   "description": "",
   "dependencies": {
-    "@dotenvx/dotenvx": "^1.52.0",
+    "@dotenvx/dotenvx": "^1.54.1",
     "bcryptjs": "^3.0.3",
     "body-parser": "^2.2.2",
     "cors": "^2.8.6",
     "express": "^5.2.1",
     "express-handlebars": "^8.0.6",
     "jsonwebtoken": "^9.0.3",
-    "mariadb": "^3.5.1",
+    "mariadb": "^3.5.2",
     "pino": "^10.3.1",
     "pino-roll": "^4.0.0",
     "ws.ascard.net": "file:"
