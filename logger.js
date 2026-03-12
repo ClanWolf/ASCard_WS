@@ -11,7 +11,7 @@ const logger = pino({
 			},
 			{
 				target: 'pino-roll',
-				options: { file: './public/log/combined-%DATE%.txt', mkdir: true, size: '10m', limit: { count: 5 } }
+				options: { file: './public/log/combined.txt', mkdir: true, size: '10m', limit: { count: 5 } }
 			},
 		]
 	}
