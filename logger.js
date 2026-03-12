@@ -7,7 +7,7 @@ const logger = pino({
 		targets: [
 			{
 				target: 'pino-pretty',
-				options: { colorize: true, }
+				options: { colorize: false, }
 			},
 			{
 				target: 'pino-roll',
