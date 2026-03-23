@@ -10,7 +10,7 @@
   "license": "Apache-2.0",
   "description": "",
   "dependencies": {
-    "@dotenvx/dotenvx": "^1.55.1",
+    "@dotenvx/dotenvx": "^1.57.2",
     "bcryptjs": "^3.0.3",
     "body-parser": "^2.2.2",
     "cors": "^2.8.6",
