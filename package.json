@@ -1,5 +1,5 @@
 {
-  "name": "ws.cw-g.net",
+  "name": "cw_db-ws",
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
@@ -10,12 +10,13 @@
   "license": "Apache-2.0",
   "description": "",
   "dependencies": {
-    "@dotenvx/dotenvx": "^1.57.2",
+    "@dotenvx/dotenvx": "^1.59.1",
     "bcryptjs": "^3.0.3",
     "body-parser": "^2.2.2",
     "cors": "^2.8.6",
     "express": "^5.2.1",
-    "express-handlebars": "^8.0.6",
+    "express-handlebars": "^8.0.7",
+	"handlebars": "^4.7.9",
     "jsonwebtoken": "^9.0.3",
     "mariadb": "^3.5.2",
     "pino": "^10.3.1",
