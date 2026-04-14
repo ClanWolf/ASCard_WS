@@ -1,4 +1,4 @@
-# CW_DB-WS
+# DataGateway
 
 [![Liberapay](https://img.shields.io/liberapay/receives/WarWolfen.svg?logo=liberapay)](https://liberapay.com/WarWolfen)
 

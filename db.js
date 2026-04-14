@@ -18,13 +18,15 @@ var pool = mariadb.createPool({
   user: DB_USER,
   password: DB_PASSWORD,
   database: DATABASE,
-  checkDuplicate: false //Only unique constraints occur mostly with the same name so enabling it should be fine
+  checkDuplicate: false // Only unique constraints occur mostly with the same name so enabling it should be fine
 });
 
-/* logger.info("Host: " + DB_HOST);
+/*
+logger.info("Host: " + DB_HOST);
 logger.info("User: " + DB_USER);
 logger.info("Database: " + DATABASE);
-logger.info("Pool: " + pool); */
+logger.info("Pool: " + pool);
+*/
 
 // Expose a method to establish connection with MariaDB SkySQL
 module.exports = Object.freeze({

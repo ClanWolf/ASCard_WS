@@ -1,6 +1,7 @@
 const express = require("express");
 
 const { logger } = require("./logger.js");
+const listDir = require("./fileTools.js");
 
 const bodyParser = require("body-parser");
 const path = require("path");
@@ -11,7 +12,7 @@ const expHbs = require("express-handlebars");
 
 let date = new Date().toISOString().split("T")[0];
 
-logger.info("Starting up CW_DB-WS (Database Webservice)...");
+logger.info("Starting up DataGateway (Database Webservice)...");
 
 var handlebars = expHbs.create({
   defaultLayout: "main-layout",
@@ -35,7 +36,7 @@ app.set("views", "views");
 const cors = require("cors");
 app.use(
   cors({
-    origin: "https://sb.cw-g.net",
+    origin: "https://sb.clanwolf.net",
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
@@ -52,12 +53,16 @@ app.use("/player", require("./routes/player.js"));
 app.use("/games", require("./routes/games"));
 //app.use("/units", require("./routes/units"));
 
-app.use("/", (req, res) => {
-  res.render("home.handlebars", {
-    pageTitle: "CW_DB-WS (Database Webservice)",
-    date: date,
-    activeHome: true,
-  });
+app.use("/", async (req, res) => {
+    const result = await listDir("public/log/");
+    const param = {
+        pageTitle: "DataGateway (Database Webservice)",
+        favicon: "/favicon.png",
+        cssFile: "/css/main.css",
+        logPath: "/log/",
+        logFiles: result.map(name => ({ name })),
+    }
+    res.render("home.handlebars", param);
 });
 
 app.listen(port, () => {

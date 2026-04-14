@@ -1,8 +1,10 @@
-<h1>CW_DB-WS</h1>
+<h1>{{pageTitle}}</h1>
 <h2>Logs</h2>
 <ul>
-	<li><a href="/log/combined.1.txt" target="log">Service log</a></li>
-	<li><a href="/log/consolelog.txt" target="log">Server passenger log</a></li>
+	{{#each logFiles}}
+	<li><a href="{{../logPath}}{{name}}" target="log">{{name}}</a></li>
+	{{/each}}
+	<li><a href="{{logPath}}consolelog.txt" target="log">Server passenger log</a></li>
 </ul>
 
-<iframe id="log" name="log" title="Log window" style="width: 100%; height: 500px; border: 1px solid #000;" src="/log/consolelog.txt"></iframe>
+<iframe id="log" name="log" title="Log window" style="width: 100%; height: 500px; border: 1px solid #000;" src="{{logPath}}consolelog.txt"></iframe>
