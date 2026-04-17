@@ -59,7 +59,7 @@ app.use("/games", require("./routes/games"));
 app.use("/", async (req, res) => {
     const result = await listDir("public/log/");
     const param = {
-        pageTitle: "DataGateway (Database Webservice)",
+        pageTitle: "CWG DataGateway",
         favicon: "/favicon.png",
         cssFile: "/css/main.css",
         logPath: "/log/",
