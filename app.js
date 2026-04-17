@@ -51,6 +51,8 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "public")));
 
 // Routes
+app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
+
 app.use("/login", require("./routes/login"));
 app.use("/player", require("./routes/player.js"));
 app.use("/games", require("./routes/games"));
@@ -67,8 +69,6 @@ app.use("/", async (req, res) => {
     }
     res.render("home.handlebars", param);
 });
-
-app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 app.listen(port, () => {
   logger.info(`Web service listening at http://localhost:${port}`);
