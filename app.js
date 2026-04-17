@@ -10,6 +10,9 @@ const port = 3000;
 
 const expHbs = require("express-handlebars");
 
+const swaggerUi = require('swagger-ui-express');
+const swaggerFile = require('swagger_output.json');
+
 let date = new Date().toISOString().split("T")[0];
 
 logger.info("Starting up DataGateway (Database Webservice)...");
@@ -64,6 +67,8 @@ app.use("/", async (req, res) => {
     }
     res.render("home.handlebars", param);
 });
+
+app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 app.listen(port, () => {
   logger.info(`Web service listening at http://localhost:${port}`);
