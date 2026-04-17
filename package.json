@@ -19,6 +19,8 @@
 	"handlebars": "^4.7.9",
     "jsonwebtoken": "^9.0.3",
     "mariadb": "^3.5.2",
+    "swagger-autogen": "^2.23.7",
+    "swagger-ui-express": "^5.0.1",
     "pino": "^10.3.1",
     "pino-roll": "^4.0.0",
     "ws.clanwolf.net": "file:"
