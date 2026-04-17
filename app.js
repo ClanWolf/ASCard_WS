@@ -11,7 +11,7 @@ const port = 3000;
 const expHbs = require("express-handlebars");
 
 const swaggerUi = require('swagger-ui-express');
-const swaggerFile = require('swagger_output.json');
+const swaggerFile = require('./swagger_output.json');
 
 let date = new Date().toISOString().split("T")[0];
 
