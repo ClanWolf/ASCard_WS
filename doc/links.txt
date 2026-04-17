@@ -1,10 +1,11 @@
 node.js/express to webservice:
-https://reintech.io/blog/how-to-use-node-js-to-create-a-web-service#google_vignette
+- https://reintech.io/blog/how-to-use-node-js-to-create-a-web-service#google_vignette
 
 Api documentation with swagger:
-https://blog.logrocket.com/documenting-express-js-api-swagger/
+- https://blog.logrocket.com/documenting-express-js-api-swagger/
+- https://ricoklimpel.de/add-api-documentation-with-swagger-to-an-express-node-js-project/
 
 If winston is not logging to console:
-https://stackoverflow.com/questions/55456007/nodejs-winston-module-example-not-logging-to-console
+- https://stackoverflow.com/questions/55456007/nodejs-winston-module-example-not-logging-to-console
 
-https://www.npmjs.com/package/rotating-file-stream
+- https://www.npmjs.com/package/rotating-file-stream
